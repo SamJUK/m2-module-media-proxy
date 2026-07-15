@@ -3,17 +3,43 @@
     "description": "Proxy missing images from an upstream environment",
     "type": "magento2-module",
     "require": {
-      "php": "^7.4|^8.0"
+        "php": "^7.4|^8.0"
     },
-    "license": ["MIT"],
+    "license": [
+        "MIT"
+    ],
     "autoload": {
-      "files": ["registration.php"],
-      "psr-4": {
-        "SamJUK\\MediaProxy\\": ""
-      }
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "SamJUK\\MediaProxy\\": ""
+        }
     },
     "require-dev": {
         "phpunit/phpunit": "^10.5",
         "phpstan/phpstan": "^1.12"
-    }
+    },
+    "homepage": "https://github.com/SamJUK/m2-module-media-proxy",
+    "authors": [
+        {
+            "name": "Sam James",
+            "email": "sam@samdjames.uk",
+            "homepage": "https://www.samdjames.uk"
+        }
+    ],
+    "keywords": [
+        "magento2",
+        "magento 2",
+        "magento2-module",
+        "adobe-commerce",
+        "extension",
+        "media",
+        "images",
+        "image-proxy",
+        "staging",
+        "local-development",
+        "sync",
+        "open-source"
+    ]
 }
