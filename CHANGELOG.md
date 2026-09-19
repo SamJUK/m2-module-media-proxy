@@ -3,7 +3,7 @@
 All notable changes to this module are documented here. This project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.0.0] - unreleased
+## [2.0.0] - 2026-09-19
 
 Breaking. Previous release was `v1.0.1`.
 
