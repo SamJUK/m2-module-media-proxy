@@ -5,7 +5,10 @@
             <general>
                 <enabled>0</enabled>
                 <mode>proxy</mode>
-                <upstream_host>https://example.com</upstream_host>
+                <upstream_host/>
+                <timeout>10</timeout>
+                <upstream_username/>
+                <upstream_password/>
             </general>
         </samjuk_media_proxy>
     </default>

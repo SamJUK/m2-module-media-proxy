@@ -6,7 +6,6 @@ namespace SamJUK\MediaProxy\Api;
 
 interface ConfigInterface
 {
-
     /**
      * Feature flag to determine if the module functionality is enabled
      * @return bool
@@ -36,4 +35,28 @@ interface ConfigInterface
      * @return bool
      */
     public function isCacheMode(): bool;
+
+    /**
+     * Is the module enabled & operating in stream mode for the current store.
+     * @return bool
+     */
+    public function isStreamMode(): bool;
+
+    /**
+     * Seconds to wait on the upstream before giving up.
+     * @return int
+     */
+    public function getTimeout(): int;
+
+    /**
+     * HTTP basic auth username for the upstream, empty when unauthenticated.
+     * @return string
+     */
+    public function getUpstreamUsername(): string;
+
+    /**
+     * HTTP basic auth password for the upstream, empty when unauthenticated.
+     * @return string
+     */
+    public function getUpstreamPassword(): string;
 }

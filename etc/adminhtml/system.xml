@@ -13,19 +13,44 @@
             <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
                 <label>General</label>
 
-                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <field id="enabled" translate="label comment" type="select" sortOrder="10" canRestore="1" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Enabled</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                    <comment>Feature flag for the entire module</comment>
+                    <comment>Feature flag for the entire module. Intended for development and integration environments only.</comment>
                 </field>
 
-                <field id="mode" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                <field id="mode" translate="label comment" type="select" sortOrder="20" canRestore="1" showInDefault="1" showInWebsite="1" showInStore="0">
                     <label>Mode</label>
                     <source_model>SamJUK\MediaProxy\Model\Config\Source\Mode</source_model>
+                    <comment>Proxy redirects missing media to the upstream. Cache downloads it once, then serves it locally. Stream fetches it through PHP on every request and keeps nothing.</comment>
+                    <depends><field id="enabled">1</field></depends>
                 </field>
 
-                <field id="upstream_host" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                <field id="upstream_host" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
                     <label>Upstream Host</label>
+                    <validate>validate-url</validate>
+                    <comment>Absolute http(s) URL of the host to fetch missing media from (e.g https://www.example.com).</comment>
+                    <depends><field id="enabled">1</field></depends>
+                </field>
+
+                <field id="timeout" translate="label comment" type="text" sortOrder="40" canRestore="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Upstream Timeout</label>
+                    <validate>validate-digits validate-greater-than-zero</validate>
+                    <comment>Seconds to wait on the upstream before giving up. Does not apply to proxy mode.</comment>
+                    <depends><field id="enabled">1</field><field id="mode" separator=",">cache,stream</field></depends>
+                </field>
+
+                <field id="upstream_username" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Upstream Username</label>
+                    <comment>HTTP basic auth username, for upstreams behind a password. Leave empty when not required. Proxy mode cannot use these, the browser fetches the image itself.</comment>
+                    <depends><field id="enabled">1</field><field id="mode" separator=",">cache,stream</field></depends>
+                </field>
+
+                <field id="upstream_password" translate="label comment" type="obscure" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Upstream Password</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                    <comment>HTTP basic auth password. Stored encrypted.</comment>
+                    <depends><field id="enabled">1</field><field id="mode" separator=",">cache,stream</field></depends>
                 </field>
             </group>
         </section>
