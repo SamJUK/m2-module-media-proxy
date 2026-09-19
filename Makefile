@@ -3,8 +3,8 @@ MAKEFLAGS += --always-make
 SHELL:=/bin/bash
 
 
-# Assuming the project is located within app/code/<vendor>/<module>
-RELATIVE_PROJECT_DIR ?= ../../..
+# Assuming the module is located within app/code/<vendor>/<module>
+RELATIVE_PROJECT_DIR ?= ../../../..
 MODULE_DIR ?= .
 
 
@@ -36,7 +36,7 @@ test-unit:
 
 
 test-integration:
-	cd ${RELATIVE_PROJECT_DIR} && php bin/magento deploy:mode:set developer && cd /data/dev/tests/integration/ && ../../../vendor/bin/phpunit
+	cd ${RELATIVE_PROJECT_DIR} && php bin/magento deploy:mode:set developer && cd /data/dev/tests/integration/ && ../../../vendor/bin/phpunit --filter SamJUK
 
 ##
 # HELP
