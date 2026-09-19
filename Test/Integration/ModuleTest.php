@@ -33,6 +33,7 @@ class ModuleTest extends TestCase
      *
      * @dataProvider buildableTypeProvider
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('buildableTypeProvider')]
     public function testTypesAreBuildableByTheObjectManager(string $requested, string $expected): void
     {
         $this->assertInstanceOf($expected, Bootstrap::getObjectManager()->create($requested));

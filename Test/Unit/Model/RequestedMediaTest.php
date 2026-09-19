@@ -160,7 +160,14 @@ class RequestedMediaTest extends TestCase
         $subject->getUpstreamUrl();
     }
 
-    /** @dataProvider invalidUpstreamHostProvider */
+    /**
+     * The annotation is for PHPUnit 9, which Magento 2.4.3 to 2.4.6 pin. The
+     * attribute is for PHPUnit 12, which dropped the annotation, and is a plain
+     * comment to the PHP 7.4 that 2.4.3 runs on.
+     *
+     * @dataProvider invalidUpstreamHostProvider
+     */
+    #[\PHPUnit\Framework\Attributes\DataProvider('invalidUpstreamHostProvider')]
     public function testUpstreamHostMustBeAnAbsoluteHttpUrl(string $host): void
     {
         $subject = $this->createSubject('media/a/b/c.jpg', $this->createConfig(['host' => $host]));
