@@ -1,0 +1,6 @@
+/.github            export-ignore
+/Test               export-ignore
+/.gitattributes     export-ignore
+/Makefile           export-ignore
+/phpstan.neon       export-ignore
+/_local_test.sh     export-ignore
