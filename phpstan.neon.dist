@@ -1,0 +1,13 @@
+includes:
+    - vendor/samjuk/dev-standards/php/magento/phpstan.neon
+
+parameters:
+    paths:
+        - Api
+        - Model
+        - Plugin
+        - Test
+        - registration.php
+    # Magento\TestFramework only exists inside a Magento install; CI runs these in the PHPUnit job.
+    excludePaths:
+        - Test/Integration

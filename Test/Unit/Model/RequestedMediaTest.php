@@ -722,7 +722,7 @@ class RequestedMediaTest extends TestCase
     }
 
     /** @param array{host?: string, username?: string, password?: string} $overrides */
-    private function createConfig(array $overrides = []): ConfigInterface
+    private function createConfig(array $overrides = []): ConfigInterface&MockObject
     {
         $config = $this->createMock(ConfigInterface::class);
         $config->method('getUpstreamHost')->willReturn($overrides['host'] ?? 'https://upstream.example.com');

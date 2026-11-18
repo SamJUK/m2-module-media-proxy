@@ -77,9 +77,10 @@ Anything that fails is logged and falls through to Magento untouched, so you get
 ## Development
 
 ```sh
-make help            # list the available targets
-make test-unit       # phpunit
-make test-phpstan    # phpstan, level 6
-make test-phpcs      # Magento2 coding standard
-make local-tests     # the whole CI matrix, in docker
+composer install
+vendor/bin/lefthook install            # Conventional Commits, PHPCS and PHPStan on every commit
+vendor/bin/samjuk-dev-standards check  # PHPCS and PHPStan (level 6) over the whole module
+vendor/bin/phpunit Test/Unit
 ```
+
+CI also checks declared dependencies, compiles DI and runs the integration tests on every supported Magento and Mage-OS version.
