@@ -18,6 +18,11 @@ jobs:
     uses: samjuk/github-actions/.github/workflows/magento2-test-static.yaml@master
     needs: lint
 
+  dependencies:
+    name: Dependencies
+    uses: samjuk/github-actions/.github/workflows/magento2-test-dependencies-module.yaml@master
+    needs: lint
+
   supported-versions:
     name: Supported Versions
     uses: samjuk/github-actions/.github/workflows/magento-supported-versions.yaml@master
@@ -25,7 +30,7 @@ jobs:
   phpunit-tests-ghas:
     name: PHPUnit Tests (GHAS)
     uses: samjuk/github-actions/.github/workflows/magento2-test-phpunit-module-ghas.yaml@master
-    needs: [static, supported-versions]
+    needs: [static, dependencies, supported-versions]
     with:
       magento_version: ${{ matrix.version }}
       magento_distribution: ${{ matrix.distribution }}
