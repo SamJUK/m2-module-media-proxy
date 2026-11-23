@@ -1,6 +1,6 @@
 # SamJUK_MediaProxy
 
-[![Supported Magento Versions](https://img.shields.io/badge/magento-2.4.3%E2%80%932.4.8-orange.svg?logo=magento)](https://github.com/SamJUK/m2-module-media-proxy/actions/workflows/ci.yml)
+[![Supported Magento Versions](https://img.shields.io/badge/magento-2.4.6%E2%80%932.4.9-orange.svg?logo=magento)](https://github.com/SamJUK/m2-module-media-proxy/actions/workflows/ci.yml)
 [![CI Workflow Status](https://github.com/samjuk/m2-module-media-proxy/actions/workflows/ci.yml/badge.svg)](https://github.com/SamJUK/m2-module-media-proxy/actions/workflows/ci.yml)
 [![GitHub Release](https://img.shields.io/github/v/release/SamJUK/m2-module-media-proxy?label=Latest%20Release&logo=github)](https://github.com/SamJUK/m2-module-media-proxy/releases)
 
